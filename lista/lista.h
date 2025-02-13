@@ -1,10 +1,10 @@
-/*
-    Assinaturas das funções de lista
-
-    Estrutura de Dados
-
-    Por Rafael Renó Corrêa, 2024
-*/
+//////////////////////////////////////////////////
+//       Assinaturas das Funções de Lista       //
+//                                              //
+//              Estrutura de Dados              //
+//                                              //
+//         Por Rafael Renó Corrêa, 2024         //
+//////////////////////////////////////////////////
 
 #ifndef LISTA_H
 #define LISTA_H
@@ -13,12 +13,8 @@ typedef struct info{
     int valor;
     char caracter;
 
-    // Preencha o tipo com as informações desejadas...
+    // Preencha com as informações desejadas...
 }Info;
-/*
-    Nota: ao preencher o tipo de informações, é necessário alterar
-          a função imprimeLista() para imprimir todos os dados.
-*/
 
 typedef struct no No;
 typedef struct lista Lista;

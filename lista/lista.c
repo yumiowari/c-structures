@@ -1,14 +1,14 @@
-/*
-    Implementação das funções de lista
-
-    Estrutura de Dados
-
-    Por Rafael Renó Corrêa, 2024
-*/
+//////////////////////////////////////////////////
+//      Implementação das Funções de Lista      //
+//                                              //
+//              Estrutura de Dados              //
+//                                              //
+//         Por Rafael Renó Corrêa, 2024         //
+//////////////////////////////////////////////////
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h> // strcmp()
+#include <string.h>
 
 #include "lista.h"
 
@@ -23,8 +23,9 @@ struct lista{
     struct no *raiz;
 };
 
-// Função para alocar o ponteiro para a lista
 Lista *fazLista(){
+// Função para alocar o ponteiro para a lista
+
     Lista *lista = (Lista*) malloc(sizeof(Lista));
     if(lista == NULL)return NULL;
 
@@ -34,8 +35,9 @@ Lista *fazLista(){
     return lista;
 }
 
-// Função para alocar o ponteiro para o nó
 No *fazNo(int chave, Info *dados){
+// Função para alocar o ponteiro para o nó
+
     No *novoNo = (No*) malloc(sizeof(No));
     if(novoNo == NULL)return NULL;
 
@@ -54,8 +56,9 @@ No *fazNo(int chave, Info *dados){
     return novoNo;
 }
 
-// Função para inserir um novo nó na lista
 int insereNo(Lista *lista, int chave, Info *dados, char *modo){
+// Função para inserir um novo nó na lista
+
     if(lista == NULL)return 1;
 
     No *novoNo = fazNo(chave, dados);
@@ -89,10 +92,10 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 
     return 0;
 }
-//
 
-// Função para remover um nó da lista
 int removeNo(Lista *lista, int chave){
+// Função para remover um nó da lista
+
     if(lista == NULL)return 1;
 
     No *ant, *aux;
@@ -136,8 +139,9 @@ int removeNo(Lista *lista, int chave){
     return 0;
 }
 
-// Função para consultar o conteúdo de um nó da lista a partir da chave
 Info *consultaNo(Lista *lista, int chave){
+// Função para consultar o conteúdo de um nó da lista a partir da chave
+
     if(lista == NULL)return NULL;
 
     if(lista->qtd > 0){
@@ -153,13 +157,15 @@ Info *consultaNo(Lista *lista, int chave){
     }else return NULL; // a lista está vazia
 }
 
-// Função para acessar o tamanho da lista
 int tamanhoLista(Lista *lista){
+// Função para acessar o tamanho da lista
+
     return lista->qtd;
 }
 
-// Função para liberar a lista da memória RAM
 int liberaLista(Lista *lista){
+// Função para liberar a lista da memória RAM
+
     if(lista == NULL)return 1;
 
     No *ant, *prox;
