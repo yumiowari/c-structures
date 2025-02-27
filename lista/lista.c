@@ -14,7 +14,7 @@
 
 struct no{ // Nó
     int chave;
-    struct info *dados;
+    Info *dados;
     struct no *prox;
 };
 
@@ -51,7 +51,6 @@ No *fazNo(int chave, Info *dados){
 
     novoNo->chave = chave;
     novoNo->dados = novoDado;
-    novoNo->prox = NULL; // por padrão, o nó é inserido no final da lista
 
     return novoNo;
 }
@@ -70,6 +69,8 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 
             lista->raiz = novoNo;
         }else{ // se é o primeiro nó
+            novoNo->prox = NULL;
+
             lista->raiz = novoNo;
         }
     }else if(strcmp(modo, "back") == 0){ // insere o novo nó no final da lista
@@ -80,8 +81,12 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 
             while(aux->prox != NULL)aux = aux->prox; // O(n)
 
+            novoNo->prox = NULL;
+
             aux->prox = novoNo;
         }else{ // se é o primeiro nó
+            novoNo->prox = NULL;
+
             lista->raiz = novoNo;
         }
     }else{ // modo inválido

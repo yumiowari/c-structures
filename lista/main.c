@@ -39,7 +39,7 @@ int rotinaTeste(Lista *lista){
     // Teste de inserção no começo da lista
 
         dados.valor = (i + 1) * 10;
-        dados.caracter = 'a' + i;
+        dados.caractere = 'a' + i;
         if(insereNo(lista, i + 1, &dados, "front") != 0)return 1;
     }
 
@@ -47,7 +47,7 @@ int rotinaTeste(Lista *lista){
     // Teste de inserção no final da lista
 
         dados.valor = (i + 1) * 10;
-        dados.caracter = 'a' + i;
+        dados.caractere = 'a' + i;
         if(insereNo(lista, i + 1, &dados, "back") != 0)return 1;
     }
 
@@ -79,12 +79,12 @@ int imprimeLista(Lista *lista, int x, int y){
         for(chave = x; chave < y; chave++){
             dados = consultaNo(lista, chave);
             if(dados != NULL){
-                printf("%d: [%d, %c]; ", chave, dados->valor, dados->caracter);
+                printf("%d: [%d, %c]; ", chave, dados->valor, dados->caractere);
             }
         }
         dados = consultaNo(lista, chave);
         if(dados != NULL){
-            printf("%d: [%d, %c]}.\n", chave, dados->valor, dados->caracter);
+            printf("%d: [%d, %c]}.\n", chave, dados->valor, dados->caractere);
         }
     }else{
         printf("{}.\n");

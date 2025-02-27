@@ -11,7 +11,7 @@
 
 typedef struct info{ // Informação
     int valor;
-    char caracter;
+    char caractere;
 
     // Preencha com as informações desejadas...
 }Info;
