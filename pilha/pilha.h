@@ -25,7 +25,7 @@ Pilha *fazPilha();
 // Retornos:
 // - Ponteiro do tipo Pilha (se nulo, não havia memória RAM disponível)
 
-No *fazNo(int chave, Info *dados);
+No *fazNo(Info *dados);
 // Função para alocar o ponteiro para um novo nó
 //
 // Retorno:

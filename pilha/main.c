@@ -29,8 +29,18 @@ int main(void){
 int rotinaTeste(Pilha *pilha){
 // Rotina de testes para as funções de pilha
     
+    int i;
+    Info dados;
+
     pilha = fazPilha();
     if(pilha == NULL)return 1;
+
+    for(i = 0; i < 10; i++){
+        dados.valor = (i + 1);
+        dados.caractere = 'a' + i;
+
+        if(empilhaNo(pilha, &dados) != 0)return 1;
+    }
 
     return 0;
 }

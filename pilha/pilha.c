@@ -31,3 +31,46 @@ Pilha *fazPilha(){
 
     return pilha;
 }
+
+No *fazNo(Info *dados){
+// Função para alocar o ponteiro para um novo nó
+
+    No *novoNo = (No*) malloc(sizeof(No));
+    if(novoNo == NULL)return NULL;
+
+    Info *novoDado = (Info*) malloc(sizeof(Info));
+    if(novoDado == NULL){
+        free(novoNo);
+
+        return NULL;
+    }
+    *novoDado = *dados;
+
+    novoNo->dados = novoDado;
+
+    return novoNo;
+}
+
+int empilhaNo(Pilha *pilha, Info *dados){
+// Função para empilhar um novo elemento
+
+    if(pilha == NULL)return 1;
+
+    No *novoNo = fazNo(dados);
+    if(novoNo == NULL)return 2;
+
+    if(pilha->qtd > 0){
+        novoNo->prox = pilha->raiz;
+
+        pilha->raiz = novoNo;
+    }else{ // se é o primeiro nó
+        novoNo->prox = NULL;
+
+        pilha->raiz = novoNo;
+    }
+
+    pilha->qtd++;
+
+    return 0;
+}
+
