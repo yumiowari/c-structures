@@ -6,14 +6,14 @@ int rotinaTeste(Lista *lista);
 // Rotina de testes para as funções da lista
 //
 // Retornos:
-// - 0: tudo certo;
+// - 0: tudo certo; e
 // - 1: algum teste falhou.
 
 int imprimeLista(Lista *lista, int x, int y);
-// Função para imprimir o conteúdo da lista das chaves de x até y
+// Função para imprimir o conteúdo da lista da chave x até a chave y
 //
 // Retornos:
-// - 0: tudo certo;
+// - 0: tudo certo; e
 // - 1: a lista nunca foi alocada.
 
 int main(void){
@@ -26,8 +26,9 @@ int main(void){
     return 0;
 }
 
-// Rotina de testes para as funções da lista
 int rotinaTeste(Lista *lista){
+// Rotina de testes para as funções da lista
+
     int i;
     lista = fazLista();
     if(lista == NULL)return 1;
@@ -62,6 +63,8 @@ int rotinaTeste(Lista *lista){
 }
 
 int imprimeLista(Lista *lista, int x, int y){
+// Função para imprimir o conteúdo da lista da chave x até a chave y
+
     if(lista == NULL)return 1;
     
     int chave;

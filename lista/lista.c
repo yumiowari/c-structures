@@ -3,7 +3,7 @@
 //                                              //
 //              Estrutura de Dados              //
 //                                              //
-//         Por Rafael Renó Corrêa, 2024         //
+//         Por Rafael Renó Corrêa, 2025         //
 //////////////////////////////////////////////////
 
 #include <stdlib.h>
@@ -12,13 +12,13 @@
 
 #include "lista.h"
 
-struct no{
+struct no{ // Nó
     int chave;
     struct info *dados;
     struct no *prox;
 };
 
-struct lista{
+struct lista{ // Lista
     int qtd;
     struct no *raiz;
 };
@@ -36,7 +36,7 @@ Lista *fazLista(){
 }
 
 No *fazNo(int chave, Info *dados){
-// Função para alocar o ponteiro para o nó
+// Função para alocar o ponteiro para um novo nó
 
     No *novoNo = (No*) malloc(sizeof(No));
     if(novoNo == NULL)return NULL;
@@ -57,7 +57,7 @@ No *fazNo(int chave, Info *dados){
 }
 
 int insereNo(Lista *lista, int chave, Info *dados, char *modo){
-// Função para inserir um novo nó na lista
+// Função para inserir um novo elemento na lista
 
     if(lista == NULL)return 1;
 
@@ -94,7 +94,7 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 }
 
 int removeNo(Lista *lista, int chave){
-// Função para remover um nó da lista
+// Função para remover um elemento da lista
 
     if(lista == NULL)return 1;
 
@@ -140,7 +140,7 @@ int removeNo(Lista *lista, int chave){
 }
 
 Info *consultaNo(Lista *lista, int chave){
-// Função para consultar o conteúdo de um nó da lista a partir da chave
+// Função para consultar o conteúdo de um elemento da lista a partir da chave
 
     if(lista == NULL)return NULL;
 
