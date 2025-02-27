@@ -90,3 +90,9 @@ int desempilhaNo(Pilha *pilha){
     return 0;
 }
 
+int tamanhoPilha(Pilha *pilha){
+// Função para acessar o tamanho da pilha
+
+    return pilha->qtd;
+}
+
