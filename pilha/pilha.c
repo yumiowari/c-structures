@@ -92,6 +92,16 @@ int desempilhaNo(Pilha *pilha){
     return 0;
 }
 
+Info *consultaTopo(Pilha *pilha){
+// Função para consultar o elemento no topo da pilha
+
+    if(pilha->qtd == 0)return NULL;
+
+    No *aux = pilha->raiz;
+
+    return aux->dados;
+}
+
 int tamanhoPilha(Pilha *pilha){
 // Função para acessar o tamanho da pilha
 

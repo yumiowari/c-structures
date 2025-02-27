@@ -9,13 +9,6 @@ int rotinaTeste(Pilha *pilha);
 // - 0: tudo certo; e
 // - 1: algum teste falhou.
 
-int imprimePilha(Pilha *pilha);
-// Função para imprimir o conteúdo da pilha
-//
-// Retornos:
-// - 0: tudo certo; e
-// - 1: a pilha nunca foi alocada.
-
 int main(void){
     Pilha *pilha = NULL;
 
@@ -31,18 +24,33 @@ int rotinaTeste(Pilha *pilha){
     
     int i;
     Info dados;
+    Info *ptr = &dados;
 
     pilha = fazPilha();
     if(pilha == NULL)return 1;
 
+    printf("Empilhando...\n");
     for(i = 0; i < 10; i++){
         dados.valor = (i + 1);
         dados.caractere = 'a' + i;
 
         if(empilhaNo(pilha, &dados) != 0)return 1;
+
+        ptr = consultaTopo(pilha);
+        if(ptr == NULL)return 1;
+        
+        printf("[%d, %c]\n", ptr->valor, ptr->caractere);
     }
 
-    for(i = 0; i < 10; i++)if(desempilhaNo(pilha) != 0)return 1;
+    printf("Desempilhando...\n");
+    for(i = 0; i < 10; i++){
+        ptr = consultaTopo(pilha);
+        if(ptr == NULL)return 1;
+        
+        printf("[%d, %c]\n", ptr->valor, ptr->caractere);
+
+        if(desempilhaNo(pilha) != 0)return 1;
+    }
 
     if(derrubaPilha(pilha) != 0)return 1;
 
