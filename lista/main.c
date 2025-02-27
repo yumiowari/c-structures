@@ -30,21 +30,25 @@ int rotinaTeste(Lista *lista){
 // Rotina de testes para as funções da lista
 
     int i;
+    Info dados;
+
     lista = fazLista();
     if(lista == NULL)return 1;
 
-    Info dados;
-
     for(i = 0; i < 5; i++){
+    // Teste de inserção no começo da lista
+
         dados.valor = (i + 1) * 10;
         dados.caracter = 'a' + i;
-        if(insereNo(lista, i + 1, &dados, "front") != 0)return 1; // teste de inserção no começo da lista
+        if(insereNo(lista, i + 1, &dados, "front") != 0)return 1;
     }
 
     for(i = 5; i < 10; i++){
+    // Teste de inserção no final da lista
+
         dados.valor = (i + 1) * 10;
         dados.caracter = 'a' + i;
-        if(insereNo(lista, i + 1, &dados, "back") != 0)return 1; // teste de inserção no final da lista
+        if(insereNo(lista, i + 1, &dados, "back") != 0)return 1;
     }
 
     if(imprimeLista(lista, 1, 10) != 0)return 1;
@@ -53,7 +57,7 @@ int rotinaTeste(Lista *lista){
     for(i = 1; i <= 10; i++){
         if(removeNo(lista, i) != 0)return 1;
 
-        if(imprimeLista(lista, i, 10) != 0)return 1; // imprimeLista(lista, 1, 10) também funciona
+        if(imprimeLista(lista, i, 10) != 0)return 1;
         printf("\n");
     }
 
