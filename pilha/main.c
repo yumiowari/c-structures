@@ -44,5 +44,7 @@ int rotinaTeste(Pilha *pilha){
 
     for(i = 0; i < 10; i++)if(desempilhaNo(pilha) != 0)return 1;
 
+    if(derrubaPilha(pilha) != 0)return 1;
+
     return 0;
 }

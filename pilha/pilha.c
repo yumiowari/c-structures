@@ -87,6 +87,8 @@ int desempilhaNo(Pilha *pilha){
         free(aux);
     }else return 2;
 
+    pilha->qtd--;
+
     return 0;
 }
 
@@ -96,3 +98,14 @@ int tamanhoPilha(Pilha *pilha){
     return pilha->qtd;
 }
 
+int derrubaPilha(Pilha *pilha){
+// Função para liberar a pilha da memória RAM
+
+    if(pilha == NULL)return 1;
+
+    while(pilha->qtd > 0)desempilhaNo(pilha);
+
+    free(pilha);
+
+    return 0;
+}
