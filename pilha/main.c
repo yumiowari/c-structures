@@ -42,5 +42,7 @@ int rotinaTeste(Pilha *pilha){
         if(empilhaNo(pilha, &dados) != 0)return 1;
     }
 
+    for(i = 0; i < 10; i++)if(desempilhaNo(pilha) != 0)return 1;
+
     return 0;
 }

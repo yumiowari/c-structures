@@ -74,3 +74,19 @@ int empilhaNo(Pilha *pilha, Info *dados){
     return 0;
 }
 
+int desempilhaNo(Pilha *pilha){
+// Função para desempilhar o elemento no topo da pilha
+
+    if(pilha == NULL)return 1;
+
+    if(pilha->qtd > 0){
+        No *aux = pilha->raiz;
+
+        pilha->raiz = aux->prox;
+
+        free(aux);
+    }else return 2;
+
+    return 0;
+}
+
