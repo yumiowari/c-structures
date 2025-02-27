@@ -17,6 +17,20 @@ int imprimePilha(Pilha *pilha);
 // - 1: a pilha nunca foi alocada.
 
 int main(void){
+    Pilha *pilha = NULL;
+
+    if(rotinaTeste(pilha) == 0){
+        printf("Os testes sucederam :)\n");
+    }else fprintf(stderr, "Algum teste falhou :(\n");
+
+    return 0;
+}
+
+int rotinaTeste(Pilha *pilha){
+// Rotina de testes para as funções de pilha
+    
+    pilha = fazPilha();
+    if(pilha == NULL)return 1;
 
     return 0;
 }

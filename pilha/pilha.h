@@ -56,7 +56,7 @@ Info *consultaTopo(Pilha *pilha);
 int tamanhoPilha(Pilha *pilha);
 // Função para acessar o tamanho da pilha
 //
-// Portanto, retorna a quantidade de elementos na pilha
+// Portanto, retorna a quantidade de elementos na pilha.
 
 int derrubaPilha(Pilha *pilha);
 // Função para liberar a pilha da memória RAM
