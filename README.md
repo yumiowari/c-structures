@@ -9,7 +9,7 @@ Progresso:
 - [x] Lista
     - [x] Dinâmica Encadeada
     - [ ] Dinâmica Duplamente Encadeada
-- [ ] Pilha
+- [x] Pilha
 - [ ] Fila
 - [ ] Árvore
     - [ ] Binária
