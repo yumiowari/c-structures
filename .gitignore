@@ -1,5 +1,5 @@
 # Executáveis
-/main
+main
 
 # Objetos
-/*.o
+*.o
