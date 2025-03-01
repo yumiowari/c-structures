@@ -38,21 +38,21 @@ Lista *fazLista(){
 No *fazNo(int chave, Info *dados){
 // Função para alocar o ponteiro para um novo nó
 
-    No *novoNo = (No*) malloc(sizeof(No));
-    if(novoNo == NULL)return NULL;
+    No *novo_no = (No*) malloc(sizeof(No));
+    if(novo_no == NULL)return NULL;
 
-    Info *novoDado = (Info*) malloc(sizeof(Info));
-    if(novoDado == NULL){
-        free(novoNo);
+    Info *novo_dado = (Info*) malloc(sizeof(Info));
+    if(novo_dado == NULL){
+        free(novo_no);
 
         return NULL;
     }
-    *novoDado = *dados;
+    *novo_dado = *dados;
 
-    novoNo->chave = chave;
-    novoNo->dados = novoDado;
+    novo_no->chave = chave;
+    novo_no->dados = novo_dado;
 
-    return novoNo;
+    return novo_no;
 }
 
 int insereNo(Lista *lista, int chave, Info *dados, char *modo){
@@ -60,18 +60,18 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 
     if(lista == NULL)return 1;
 
-    No *novoNo = fazNo(chave, dados);
-    if(novoNo == NULL)return 2;
+    No *novo_no = fazNo(chave, dados);
+    if(novo_no == NULL)return 2;
 
     if(strcmp(modo, "front") == 0){ // insere o novo nó no começo da lista
         if(lista->qtd > 0){
-            novoNo->prox = lista->raiz;
+            novo_no->prox = lista->raiz;
 
-            lista->raiz = novoNo;
+            lista->raiz = novo_no;
         }else{ // se é o primeiro nó
-            novoNo->prox = NULL;
+            novo_no->prox = NULL;
 
-            lista->raiz = novoNo;
+            lista->raiz = novo_no;
         }
     }else if(strcmp(modo, "back") == 0){ // insere o novo nó no final da lista
         if(lista->qtd > 0){
@@ -81,13 +81,13 @@ int insereNo(Lista *lista, int chave, Info *dados, char *modo){
 
             while(aux->prox != NULL)aux = aux->prox; // O(n)
 
-            novoNo->prox = NULL;
+            novo_no->prox = NULL;
 
-            aux->prox = novoNo;
+            aux->prox = novo_no;
         }else{ // se é o primeiro nó
-            novoNo->prox = NULL;
+            novo_no->prox = NULL;
 
-            lista->raiz = novoNo;
+            lista->raiz = novo_no;
         }
     }else{ // modo inválido
         return 3;
