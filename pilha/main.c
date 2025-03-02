@@ -2,12 +2,12 @@
 
 #include "pilha.h"
 
-int rotinaTeste(Pilha *pilha);
+bool rotinaTeste(Pilha *pilha);
 // Rotina de testes para as funções de pilha
 //
 // Retornos:
-// - 0: tudo certo; e
-// - 1: algum teste falhou.
+// - true: tudo certo; e
+// - false: algum teste falhou.
 
 int main(void){
     Pilha *pilha = NULL;
@@ -19,7 +19,7 @@ int main(void){
     return 0;
 }
 
-int rotinaTeste(Pilha *pilha){
+bool rotinaTeste(Pilha *pilha){
 // Rotina de testes para as funções de pilha
     
     int i;
@@ -27,17 +27,17 @@ int rotinaTeste(Pilha *pilha){
     Info *ptr = NULL;
 
     pilha = fazPilha();
-    if(pilha == NULL)return 1;
+    if(pilha == NULL)return false;
 
     printf("Empilhando...\n");
     for(i = 0; i < 10; i++){
         dados.valor = (i + 1);
         dados.caractere = 'a' + i;
 
-        if(empilhaNo(pilha, &dados) != 0)return 1;
+        if(empilhaNo(pilha, &dados) != 0)return false;
 
         ptr = consultaTopo(pilha);
-        if(ptr == NULL)return 1;
+        if(ptr == NULL)return false;
         
         printf("[%d, %c]\n", ptr->valor, ptr->caractere);
     }
@@ -45,14 +45,14 @@ int rotinaTeste(Pilha *pilha){
     printf("Desempilhando...\n");
     for(i = 0; i < 10; i++){
         ptr = consultaTopo(pilha);
-        if(ptr == NULL)return 1;
+        if(ptr == NULL)return false;
         
         printf("[%d, %c]\n", ptr->valor, ptr->caractere);
 
-        if(desempilhaNo(pilha) != 0)return 1;
+        if(desempilhaNo(pilha) != 0)return false;
     }
 
-    if(derrubaPilha(pilha) != 0)return 1;
+    if(derrubaPilha(pilha) != 0)return false;
 
-    return 0;
+    return true;
 }
