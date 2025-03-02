@@ -1,25 +1,26 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "fila.h"
 
-int rotinaTeste(Fila *fila);
+bool rotinaTeste(Fila *fila);
 // Rotina de testes para as funções de fila
 //
 // Retornos:
-// - 0: tudo certo; e
-// - 1: algum teste falhou.
+// - true: tudo certo; e
+// - false: algum teste falhou.
 
 int main(void){
     Fila *fila = NULL;
 
-    if(rotinaTeste(fila) == 0){
+    if(rotinaTeste(fila) == true){
         printf("Os testes sucederam :)\n");
     }else fprintf(stderr, "Algum teste falhou :(\n");
     
     return 0;
 }
 
-int rotinaTeste(Fila *fila){
+bool rotinaTeste(Fila *fila){
 // Rotina de testes para as funções de fila
     
     int i;
@@ -27,7 +28,7 @@ int rotinaTeste(Fila *fila){
     Info *ptr = NULL;
 
     fila = fazFila();
-    if(fila == NULL)return 1;
+    if(fila == NULL)return false;
 
     printf("Enfileirando...\n");
     for(i = 0; i < 10; i++){
@@ -36,23 +37,23 @@ int rotinaTeste(Fila *fila){
 
         printf("[%d, %c]\n", dados.valor, dados.caractere);
 
-        if(insereNo(fila, &dados) != 0)return 1;
+        if(insereNo(fila, &dados) != 0)return false;
 
         ptr = consultaFrente(fila);
-        if(ptr == NULL)return 1;
+        if(ptr == NULL)return false;
     }
 
     printf("Desenfileirando...\n");
     for(i = 0; i < 10; i++){
         ptr = consultaFrente(fila);
-        if(ptr == NULL)return 1;
+        if(ptr == NULL)return false;
 
         printf("[%d, %c]\n", ptr->valor, ptr->caractere);
 
-        if(removeNo(fila) != 0)return 1;
+        if(removeNo(fila) != 0)return false;
     }
 
-    if(liberaFila(fila) != 0)return 1;
+    if(liberaFila(fila) != 0)return false;
 
-    return 0;
+    return true;
 }
