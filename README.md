@@ -13,7 +13,7 @@ Algumas implementações de estruturas de dados em C.
     - [x] Dinâmica Encadeada
     - [ ] Dinâmica Duplamente Encadeada
 - [x] Pilha
-- [ ] Fila
+- [x] Fila
 - [ ] Árvore
     - [ ] Binária
     - [ ] B-Tree
