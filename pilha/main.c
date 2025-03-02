@@ -24,7 +24,7 @@ int rotinaTeste(Pilha *pilha){
     
     int i;
     Info dados;
-    Info *ptr = &dados;
+    Info *ptr = NULL;
 
     pilha = fazPilha();
     if(pilha == NULL)return 1;

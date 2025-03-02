@@ -84,6 +84,7 @@ int desempilhaNo(Pilha *pilha){
 
         pilha->raiz = aux->prox;
 
+        free(aux->dados);
         free(aux);
     }else return 2;
 
