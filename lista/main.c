@@ -1,46 +1,47 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "lista.h"
 
-int rotinaTeste(Lista *lista);
+bool rotinaTeste(Lista *lista);
 // Rotina de testes para as funções da lista
 //
 // Retornos:
-// - 0: tudo certo; e
-// - 1: algum teste falhou.
+// - true: tudo certo; e
+// - false: algum teste falhou.
 
-int imprimeLista(Lista *lista, int x, int y);
+bool imprimeLista(Lista *lista, int x, int y);
 // Função para imprimir o conteúdo da lista da chave x até a chave y
 //
 // Retornos:
-// - 0: tudo certo; e
-// - 1: a lista nunca foi alocada.
+// - true: tudo certo; e
+// - false: a lista nunca foi alocada.
 
 int main(void){
     Lista *lista = NULL;
 
-    if(rotinaTeste(lista) == 0){
+    if(rotinaTeste(lista) == true){
         printf("Os testes sucederam :)\n");
     }else fprintf(stderr, "Algum teste falhou :(\n");
 
     return 0;
 }
 
-int rotinaTeste(Lista *lista){
+bool rotinaTeste(Lista *lista){
 // Rotina de testes para as funções da lista
 
     int i;
     Info dados;
 
     lista = fazLista();
-    if(lista == NULL)return 1;
+    if(lista == NULL)return false;
 
     for(i = 0; i < 5; i++){
     // Teste de inserção no começo da lista
 
         dados.valor = (i + 1) * 10;
         dados.caractere = 'a' + i;
-        if(insereNo(lista, i + 1, &dados, "front") != 0)return 1;
+        if(insereNo(lista, i + 1, &dados, "front") != 0)return false;
     }
 
     for(i = 5; i < 10; i++){
@@ -48,28 +49,28 @@ int rotinaTeste(Lista *lista){
 
         dados.valor = (i + 1) * 10;
         dados.caractere = 'a' + i;
-        if(insereNo(lista, i + 1, &dados, "back") != 0)return 1;
+        if(insereNo(lista, i + 1, &dados, "back") != 0)return false;
     }
 
-    if(imprimeLista(lista, 1, 10) != 0)return 1;
+    if(imprimeLista(lista, 1, 10) != true)return false;
     printf("\n");
 
     for(i = 1; i <= 10; i++){
-        if(removeNo(lista, i) != 0)return 1;
+        if(removeNo(lista, i) != 0)return false;
 
-        if(imprimeLista(lista, i, 10) != 0)return 1;
+        if(imprimeLista(lista, i, 10) != true)return false;
         printf("\n");
     }
 
-    if(liberaLista(lista) != 0)return 1;
+    if(liberaLista(lista) != 0)return false;
 
-    return 0;
+    return false;
 }
 
-int imprimeLista(Lista *lista, int x, int y){
+bool imprimeLista(Lista *lista, int x, int y){
 // Função para imprimir o conteúdo da lista da chave x até a chave y
 
-    if(lista == NULL)return 1;
+    if(lista == NULL)return false;
     
     int chave;
     Info *dados = NULL;
@@ -87,8 +88,8 @@ int imprimeLista(Lista *lista, int x, int y){
             printf("%d: [%d, %c]}.\n", chave, dados->valor, dados->caractere);
         }
     }else{
-        printf("{}.\n");
+        printf("Lista = {}.\n");
     }
 
-    return 0;
+    return true;
 }

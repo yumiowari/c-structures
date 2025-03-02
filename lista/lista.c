@@ -7,7 +7,6 @@
 //////////////////////////////////////////////////
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "lista.h"
@@ -123,16 +122,19 @@ int removeNo(Lista *lista, int chave){
                         ant->prox = NULL;
                     }
                     
+                    free(aux->dados);
                     free(aux);
                 }else return 3;
             }else{ // se é o primeiro nó
                 lista->raiz = aux->prox;
 
+                free(aux->dados);
                 free(aux);
             }
         }else{ // se é o primeiro e único nó
             aux = lista->raiz;
 
+            free(aux->dados);
             free(aux);
 
             lista->raiz = NULL;
