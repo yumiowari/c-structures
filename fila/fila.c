@@ -88,6 +88,7 @@ int removeNo(Fila *fila){
 
         fila->raiz = aux->prox;
 
+        free(aux->dados);
         free(aux);
     }else return 2;
 

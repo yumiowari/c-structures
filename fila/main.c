@@ -24,7 +24,7 @@ int rotinaTeste(Fila *fila){
     
     int i;
     Info dados;
-    Info *ptr;
+    Info *ptr = NULL;
 
     fila = fazFila();
     if(fila == NULL)return 1;
@@ -45,10 +45,11 @@ int rotinaTeste(Fila *fila){
     printf("Desenfileirando...\n");
     for(i = 0; i < 10; i++){
         ptr = consultaFrente(fila);
-
-        if(removeNo(fila) != 0)return 1;
+        if(ptr == NULL)return 1;
 
         printf("[%d, %c]\n", ptr->valor, ptr->caractere);
+
+        if(removeNo(fila) != 0)return 1;
     }
 
     if(liberaFila(fila) != 0)return 1;
