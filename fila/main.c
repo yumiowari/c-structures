@@ -24,20 +24,31 @@ int rotinaTeste(Fila *fila){
     
     int i;
     Info dados;
-    Info *ptr = &dados;
+    Info *ptr;
 
     fila = fazFila();
     if(fila == NULL)return 1;
 
+    printf("Enfileirando...\n");
     for(i = 0; i < 10; i++){
         dados.valor = i + 1;
         dados.caractere = 'a' + i;
 
-        if(insereNo(fila, ptr) != 0)return 1;
+        printf("[%d, %c]\n", dados.valor, dados.caractere);
+
+        if(insereNo(fila, &dados) != 0)return 1;
+
+        ptr = consultaFrente(fila);
+        if(ptr == NULL)return 1;
     }
 
+    printf("Desenfileirando...\n");
     for(i = 0; i < 10; i++){
+        ptr = consultaFrente(fila);
+
         if(removeNo(fila) != 0)return 1;
+
+        printf("[%d, %c]\n", ptr->valor, ptr->caractere);
     }
 
     return 0;

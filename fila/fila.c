@@ -44,6 +44,7 @@ No *fazNo(Info *dados){
 
         return NULL;
     }
+    *novo_dado = *dados;
 
     novo_no->dados = novo_dado;
 
@@ -59,9 +60,7 @@ int insereNo(Fila *fila, Info *dados){
     if(novo_no == NULL)return 2;
 
     if(fila->qtd > 0){
-        No *aux;
-
-        aux = fila->raiz;
+        No *aux = fila->raiz;
 
         while(aux->prox != NULL)aux = aux->prox; // O(n)
 
@@ -95,4 +94,12 @@ int removeNo(Fila *fila){
     fila->qtd--;
 
     return 0;
+}
+
+Info *consultaFrente(Fila *fila){
+// Função para consultar o conteúdo do elemento na frente da fila
+
+    No *aux = fila->raiz;
+
+    return aux->dados;
 }

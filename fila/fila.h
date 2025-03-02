@@ -47,7 +47,7 @@ int removeNo(Fila *fila);
 // - 1: a fila nunca foi alocada; e
 // - 2: a fila está vazia.
 
-Info *consultaFrente(Fila *file);
+Info *consultaFrente(Fila *fila);
 // Função para consultar o conteúdo do elemento na frente da fila
 //
 // Retornos:
