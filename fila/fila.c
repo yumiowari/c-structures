@@ -78,3 +78,21 @@ int insereNo(Fila *fila, Info *dados){
 
     return 0;
 }
+
+int removeNo(Fila *fila){
+// Função para remover um elemento da fila
+
+    if(fila == NULL)return 1;
+
+    if(fila->qtd > 0){
+        No *aux = fila->raiz;
+
+        fila->raiz = aux->prox;
+
+        free(aux);
+    }else return 2;
+
+    fila->qtd--;
+
+    return 0;
+}
