@@ -22,8 +22,19 @@ int main(void){
 int rotinaTeste(Fila *fila){
 // Rotina de testes para as funções de fila
     
+    int i;
+    Info dados;
+    Info *ptr = &dados;
+
     fila = fazFila();
     if(fila == NULL)return 1;
+
+    for(i = 0; i < 10; i++){
+        dados.valor = i + 1;
+        dados.caractere = 'a' + i;
+
+        if(insereNo(fila, ptr) != 0)return 1;
+    }
 
     return 0;
 }
