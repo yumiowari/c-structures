@@ -51,5 +51,7 @@ int rotinaTeste(Fila *fila){
         printf("[%d, %c]\n", ptr->valor, ptr->caractere);
     }
 
+    if(liberaFila(fila) != 0)return 1;
+
     return 0;
 }

@@ -103,3 +103,21 @@ Info *consultaFrente(Fila *fila){
 
     return aux->dados;
 }
+
+int tamanhoFila(Fila *fila){
+// Função para acessar o tamanho da fila
+
+    return fila->qtd;
+}
+
+int liberaFila(Fila *fila){
+// Função para liberar a fila da memória RAM
+
+    if(fila == NULL)return 1;
+
+    while(fila->qtd > 0)removeNo(fila);
+
+    free(fila);
+
+    return 0;
+}
