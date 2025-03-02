@@ -20,3 +20,14 @@ struct fila{ // Fila
     struct no *raiz;
 };
 
+Fila *fazFila(){
+// Função para alocar o ponteiro para a fila
+
+    Fila *fila = (Fila*) malloc(sizeof(Fila));
+    if(fila == NULL)return NULL;
+
+    fila->raiz = NULL;
+    fila->qtd = 0;
+
+    return fila;
+}

@@ -22,6 +22,8 @@ int main(void){
 int rotinaTeste(Fila *fila){
 // Rotina de testes para as funções de fila
     
+    fila = fazFila();
+    if(fila == NULL)return 1;
 
     return 0;
 }
