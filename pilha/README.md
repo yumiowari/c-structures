@@ -2,8 +2,8 @@
 
 ### Compilação:
 
-`gcc -c pilha.c -o pilha.o -Wall && gcc main.c pilha.o -o main -Wall`
+`gcc -c stack.c -o stack.o -Wall && gcc main.c stack.o -o main -Wall`
 
 ---
 
-Feito com amor por Yumiowari 🪶
+Feito por Yumiowari 🪶
